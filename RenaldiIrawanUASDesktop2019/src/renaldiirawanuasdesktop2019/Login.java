@@ -128,13 +128,18 @@ public class Login extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-        if(txtNama.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"Kolom Nama tidak boleh kosong !");
-        }else if(txtPassword.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"Kolom Alamat tidak boleh kosong !");
+        String username = txtNama.getText();
+        String password = txtPassword.getText();
+        
+        if (password.contains("admin") && (username.contains("admin"))){
+                txtNama.setText(null);
+                txtPassword.setText(null);
+                
+                Homepage homepage = new Homepage();
+                homepage.setVisible(true);
+        }else {JOptionPane.showMessageDialog(null, "maaf gagal");
+        
         }
-        Homepage fd = new Homepage();
-        fd.setVisible(true);
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed

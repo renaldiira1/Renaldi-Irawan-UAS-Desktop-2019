@@ -10,7 +10,8 @@ package renaldiirawanuasdesktop2019;
  * @author Renaldi Irawan
  */
 public class CetakTransaksi extends javax.swing.JFrame {
-
+    InputTransaksi input = new InputTransaksi();
+   
     /**
      * Creates new form CetakTransaksi
      */
@@ -169,11 +170,11 @@ public class CetakTransaksi extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnPrint;
-    private javax.swing.JLabel hasilBarang;
-    private javax.swing.JLabel hasilHarga;
-    private javax.swing.JLabel hasilJumlah;
-    private javax.swing.JLabel hasilTanggal;
-    private javax.swing.JLabel hasilTotal;
+    public javax.swing.JLabel hasilBarang;
+    public javax.swing.JLabel hasilHarga;
+    public javax.swing.JLabel hasilJumlah;
+    public javax.swing.JLabel hasilTanggal;
+    public javax.swing.JLabel hasilTotal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

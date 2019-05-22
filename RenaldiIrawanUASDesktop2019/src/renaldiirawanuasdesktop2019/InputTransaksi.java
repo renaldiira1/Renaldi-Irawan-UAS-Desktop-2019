@@ -12,7 +12,10 @@ import javax.swing.JOptionPane;
  * @author Renaldi Irawan
  */
 public class InputTransaksi extends javax.swing.JFrame {
-
+    
+    CetakTransaksi hasil = new CetakTransaksi();
+    
+    
     /**
      * Creates new form InputTransaksi
      */
@@ -162,18 +165,20 @@ public class InputTransaksi extends javax.swing.JFrame {
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
-         if(txtTanggal.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"Kolom Nama tidak boleh kosong !");
+         if(cbBarang.getSelectedItem() == null){
+            JOptionPane.showMessageDialog(null,"Kolom Barang tidak boleh kosong !");
+        }else if(txtTanggal.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null,"Kolom Tanggal tidak boleh kosong !");
         }else if(txtHarga.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"Kolom Alamat tidak boleh kosong !");
+            JOptionPane.showMessageDialog(null,"Kolom Harga tidak boleh kosong !");
         }else if(txtJumlah.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"Kolom Pass tidak boleh kosong !");
+            JOptionPane.showMessageDialog(null,"Kolom Jumlah tidak boleh kosong !");
         }else if(txtTotal.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"Kolom Pass tidak boleh kosong !");
+            JOptionPane.showMessageDialog(null,"Kolom total tidak boleh kosong !");
         }else{
-        
-          
-        }
+       inputData();
+       hasil.setVisible(true);
+       }
        
         
         
@@ -182,8 +187,8 @@ public class InputTransaksi extends javax.swing.JFrame {
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
-        Homepage fd = new Homepage();
-        fd.setVisible(true);
+        Homepage home = new Homepage();
+        home.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnCancelActionPerformed
 
@@ -213,22 +218,35 @@ public class InputTransaksi extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(InputTransaksi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new InputTransaksi().setVisible(true);
-            }
+        
+        java.awt.EventQueue.invokeLater(() -> {
+            new InputTransaksi().setVisible(true);
         });
     }
      public void inputData(){
-             
+         //mengambil model dari table yang ada
        
+      
+       
+       hasil.hasilBarang.setText((String) cbBarang.getSelectedItem());
+       hasil.hasilTanggal.setText(txtTanggal.getText());
+       hasil.hasilHarga.setText(txtHarga.getText());
+       hasil.hasilJumlah.setText(txtJumlah.getText());
+       hasil.hasilTotal.setText(txtTotal.getText());
+       
+       
+       
+       String cbPilihan = (String) cbBarang.getSelectedItem();
        txtTanggal.setText("");
        txtHarga.setText("");
        txtJumlah.setText("");
        txtTotal.setText("");
-         }
+       
+       
+       //masukkan data yang di input kedalam table
+       
+    };
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnCancel;
